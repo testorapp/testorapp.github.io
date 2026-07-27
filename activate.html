@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Account - Testora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .activate-wrapper { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:40px 20px; background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%); }
+        .activate-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:48px; max-width:480px; width:100%; text-align:center; backdrop-filter:blur(20px); }
+        .activate-icon { width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:28px; }
+        .activate-icon.success { background:rgba(34,197,94,0.15); color:#22c55e; }
+        .activate-icon.error { background:rgba(239,68,68,0.15); color:#ef4444; }
+        .activate-icon.loading { background:rgba(99,102,241,0.15); color:#6366f1; animation:spin 1s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        .activate-card h1 { color:#fff; font-size:24px; margin-bottom:12px; }
+        .activate-card p { color:#94a3b8; line-height:1.6; margin-bottom:24px; }
+        .activate-card .btn { display:inline-block; padding:12px 28px; border-radius:10px; text-decoration:none; font-weight:600; }
+        .activate-card .btn-primary { background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="activate-wrapper">
+        <div class="activate-card" id="activateCard">
+            <div class="activate-icon loading" id="activateIcon"><i class="fas fa-circle-notch"></i></div>
+            <h1 id="activateTitle">Activating your account...</h1>
+            <p id="activateMessage">Please wait while we verify your activation link.</p>
+            <a href="login.html" class="btn btn-primary" id="activateBtn" style="display:none;">Go to Login</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { activateAccount } from './js/api.js';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        const icon = document.getElementById('activateIcon');
+        const title = document.getElementById('activateTitle');
+        const msg = document.getElementById('activateMessage');
+        const btn = document.getElementById('activateBtn');
+
+        async function run() {
+            if (!token) {
+                icon.className = 'activate-icon error';
+                icon.innerHTML = '<i class="fas fa-times"></i>';
+                title.textContent = 'Invalid Link';
+                msg.textContent = 'The activation link is missing or invalid. Please request a new one.';
+                btn.style.display = 'inline-block';
+                btn.href = 'resend-activation.html';
+                btn.textContent = 'Resend Activation';
+                return;
+            }
+
+            try {
+                const result = await activateAccount(token);
+                icon.className = 'activate-icon success';
+                icon.innerHTML = '<i class="fas fa-check"></i>';
+                title.textContent = 'Account Activated!';
+                msg.textContent = result.message || 'Your account is now active. You can log in and start testing.';
+                btn.style.display = 'inline-block';
+            } catch (err) {
+                icon.className = 'activate-icon error';
+                icon.innerHTML = '<i class="fas fa-times"></i>';
+                title.textContent = 'Activation Failed';
+                msg.textContent = err.response?.error || err.message || 'The link may have expired. Please request a new activation email.';
+                btn.style.display = 'inline-block';
+                btn.href = 'resend-activation.html';
+                btn.textContent = 'Resend Activation';
+            }
+        }
+
+        run();
+    </script>
+</body>
+</html>
