@@ -11,27 +11,20 @@ async function loadConfig() {
         }
 
         const config = await response.json();
-        API_BASE_URL = config.API_BASE_URL;
+
+        API_BASE_URL = config.API_BASE_URL.replace(/\/+$/, "");
+
         console.log("API URL:", API_BASE_URL);
 
     } catch (error) {
         console.error("Config loading error:", error);
-        // Visible fallback so users know the app is broken
-        document.body.innerHTML = `
-            <div style="padding:60px 20px;text-align:center;font-family:system-ui,sans-serif;">
-                <h2 style="color:#ef4444;">⚠️ Configuration Error</h2>
-                <p>Unable to load app settings. The backend may be offline.</p>
-                <p style="color:#666;font-size:14px;">Error: ${error.message}</p>
-                <button onclick="location.reload()" style="margin-top:20px;padding:10px 24px;border:none;border-radius:8px;background:#4f46e5;color:white;cursor:pointer;">
-                    Retry
-                </button>
-            </div>
-        `;
-        throw error;
     }
 }
 
+
 async function apiRequest(endpoint, options = {}) {
+
+    // Wait until config.json has loaded
     await configReady;
 
     if (!API_BASE_URL) {
@@ -43,7 +36,6 @@ async function apiRequest(endpoint, options = {}) {
     const config = {
         headers: {
             "Content-Type": "application/json",
-           
             ...options.headers
         },
         ...options,
@@ -52,28 +44,25 @@ async function apiRequest(endpoint, options = {}) {
 
     try {
         const response = await fetch(url, config);
+
         const data = await response.json();
 
         if (!response.ok) {
-            const error = new Error(
-                data.error || data.message || `Request failed (${response.status})`
+            throw new Error(
+                data.error ||
+                data.message ||
+                "Request failed"
             );
-            error.response = data;      // server response body
-            error.status = response.status;
-            throw error;
         }
 
         return data;
 
     } catch (err) {
-        // Re-throw network errors or our custom errors
-        if (!err.response && !err.status) {
-            err.message = err.message || "Network error. Is the backend running?";
-        }
         console.error("API Error:", err);
         throw err;
     }
 }
+
 
 export async function register(userData) {
     return apiRequest("/api/register", {
@@ -82,6 +71,7 @@ export async function register(userData) {
     });
 }
 
+
 export async function login(credentials) {
     return apiRequest("/api/login", {
         method: "POST",
@@ -89,38 +79,23 @@ export async function login(credentials) {
     });
 }
 
+
 export async function logout() {
     return apiRequest("/api/logout", {
         method: "POST"
     });
 }
 
+
 export async function getUser() {
     return apiRequest("/api/user");
 }
 
+
 export async function activateAccount(token) {
-    await configReady;
-    
-    const response = await fetch(`${API_BASE_URL}/api/activate/${token}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "true"
-        },
-        credentials: "omit"  // no cookies needed for activation
-    });
-    
-    const data = await response.json();
-    
-    if (!response.ok) {
-        const error = new Error(data.error || data.message || "Activation failed");
-        error.response = data;
-        throw error;
-    }
-    
-    return data;
+    return apiRequest(`/api/activate/${token}`);
 }
+
 
 export async function resendActivation(email) {
     return apiRequest("/api/resend-activation", {
@@ -129,12 +104,14 @@ export async function resendActivation(email) {
     });
 }
 
+
 export async function forgotPassword(email) {
     return apiRequest("/api/forgot-password", {
         method: "POST",
         body: JSON.stringify({ email })
     });
 }
+
 
 export async function resetPassword(token, passwordData) {
     return apiRequest(`/api/reset-password/${token}`, {
@@ -143,9 +120,11 @@ export async function resetPassword(token, passwordData) {
     });
 }
 
+
 export async function getStats() {
     return apiRequest("/api/stats");
 }
+
 
 export async function getSites() {
     return apiRequest("/api/sites");
