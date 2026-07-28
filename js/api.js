@@ -43,7 +43,7 @@ async function apiRequest(endpoint, options = {}) {
     const config = {
         headers: {
             "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "true",
+           
             ...options.headers
         },
         ...options,
