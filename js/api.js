@@ -100,7 +100,26 @@ export async function getUser() {
 }
 
 export async function activateAccount(token) {
-    return apiRequest(`/api/activate/${token}`);
+    await configReady;
+    
+    const response = await fetch(`${API_BASE_URL}/api/activate/${token}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true"
+        },
+        credentials: "omit"  // no cookies needed for activation
+    });
+    
+    const data = await response.json();
+    
+    if (!response.ok) {
+        const error = new Error(data.error || data.message || "Activation failed");
+        error.response = data;
+        throw error;
+    }
+    
+    return data;
 }
 
 export async function resendActivation(email) {
