@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Methods - Testora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="page-transition">
+<nav class="navbar glass-nav">
+        <div class="nav-container">
+            <a href="javascript:void(0)" class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="6" width="36" height="26" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
+                        <circle cx="20" cy="19" r="9" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.2)"/>
+                        <path d="M26 25L32 31" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="11" cy="12" r="3" fill="white" opacity="0.9"/>
+                        <rect x="6" y="32" width="8" height="2" rx="1" fill="white"/>
+                        <rect x="16" y="32" width="8" height="2" rx="1" fill="white"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Testora</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="available-sites.html" class="nav-link">Available Sites</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How it Works</a></li>
+                <li><a href="payment.html" class="nav-link">Payments</a></li>
+            </ul>
+<div class="nav-actions" id="navActions">
+                <a href="register.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="how-it-works.html" class="mobile-link">How it Works</a>
+        <a href="payment.html" class="mobile-link">Payments</a>
+        <div class="mobile-cta" id="mobileCta">
+            <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <div class="payment-wrapper">
+        <div class="payment-header">
+            <h1>Payment Methods</h1>
+            <p>Choose your preferred payment method to receive your earnings</p>
+        </div>
+        <div class="payment-grid">
+            <div class="payment-card" onclick="showWarning('M-Pesa')">
+                <div class="payment-logo mpesa"><i class="fas fa-mobile-alt" style="font-size:1.5rem;"></i></div>
+                <div class="payment-info"><h3>M-Pesa</h3><p>Instant withdrawal to your mobile wallet</p></div>
+            </div>
+            <div class="payment-card" onclick="showWarning('PayPal')">
+                <div class="payment-logo paypal"><i class="fab fa-paypal" style="font-size:1.5rem;"></i></div>
+                <div class="payment-info"><h3>PayPal</h3><p>Fast and secure international transfers</p></div>
+            </div>
+            <div class="payment-card" onclick="showWarning('Stripe')">
+                <div class="payment-logo stripe"><i class="fas fa-credit-card" style="font-size:1.5rem;"></i></div>
+                <div class="payment-info"><h3>Stripe</h3><p>Direct bank transfer</p></div>
+            </div>
+            <div class="payment-card" onclick="showWarning('Payoneer')">
+                <div class="payment-logo payoneer"><i class="fas fa-wallet" style="font-size:1.5rem;"></i></div>
+                <div class="payment-info"><h3>Payoneer</h3><p>Global payment service</p></div>
+            </div>
+            <div class="payment-card" onclick="showWarning('Cryptocurrency')">
+                <div class="payment-logo crypto"><i class="fab fa-bitcoin" style="font-size:1.5rem;"></i></div>
+                <div class="payment-info"><h3>Cryptocurrency</h3><p>Bitcoin, Ethereum, and more</p></div>
+            </div>
+            <div class="payment-card" onclick="showWarning('Bank Transfer')">
+                <div class="payment-logo bank"><i class="fas fa-university" style="font-size:1.5rem;"></i></div>
+                <div class="payment-info"><h3>Bank Transfer</h3><p>Direct deposit to your bank account</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="warning-modal" id="warningModal">
+        <div class="warning-content">
+            <div class="warning-icon" style="font-size:3rem;color:#ef4444;margin-bottom:15px;"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="warning-title">Complete a Test First</div>
+            <div class="warning-text" id="warningText">You need to complete at least one test before you can withdraw your earnings. Please complete a test and try again.</div>
+            <button class="btn-close" onclick="closeWarning()">Understood</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+<div class="footer-brand">
+                <a href="javascript:void(0)" class="logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="6" width="36" height="26" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
+                            <circle cx="20" cy="19" r="9" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.2)"/>
+                            <path d="M26 25L32 31" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="11" cy="12" r="3" fill="white" opacity="0.9"/>
+                            <rect x="6" y="32" width="8" height="2" rx="1" fill="white"/>
+                            <rect x="16" y="32" width="8" height="2" rx="1" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Testora</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html" class="footer-link">Privacy</a>
+                <a href="terms.html" class="footer-link">Terms</a>
+                <a href="cookies.html" class="footer-link">Cookies</a>
+            </div>
+            <div class="footer-copyright">© 2024 Testora Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+<script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
+

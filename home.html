@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Testora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-transition">
+<nav class="navbar glass-nav">
+        <div class="nav-container">
+            <a href="javascript:void(0)" class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="6" width="36" height="26" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
+                        <circle cx="20" cy="19" r="9" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.2)"/>
+                        <path d="M26 25L32 31" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="11" cy="12" r="3" fill="white" opacity="0.9"/>
+                        <rect x="6" y="32" width="8" height="2" rx="1" fill="white"/>
+                        <rect x="16" y="32" width="8" height="2" rx="1" fill="white"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Testora</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="available-sites.html" class="nav-link">Available Sites</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How it Works</a></li>
+                <li><a href="payment.html" class="nav-link">Payments</a></li>
+            </ul>
+            <div class="nav-actions" id="navActions"></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="how-it-works.html" class="mobile-link">How it Works</a>
+        <a href="payment.html" class="mobile-link">Payments</a>
+        <div class="mobile-cta" id="mobileCta"></div>
+    </div>
+
+    <div class="home-wrapper">
+        <div class="dashboard-header">
+<span class="welcome-badge">Welcome back, <span id="welcomeName">Tester</span>!</span>
+            <h1>Ready to Start Earning?</h1>
+            <p>Browse available tests and start earning money by sharing your feedback on websites.</p>
+        </div>
+<div class="dashboard-stats stagger-children">
+            <div class="stat-card glass-card">
+                <div class="stat-icon"><i class="fas fa-wallet"></i></div>
+                <div class="stat-value live-counter" id="statEarnings" data-target="342.00" data-prefix="$" data-currency="true" data-duration="2000">$0.00</div>
+                <div class="stat-label">Total Earnings</div>
+            </div>
+            <div class="stat-card glass-card">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-value live-counter" id="statCompleted" data-target="18" data-duration="1500">0</div>
+                <div class="stat-label">Tests Completed</div>
+            </div>
+            <div class="stat-card glass-card">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <div class="stat-value live-counter" id="statPending" data-target="3" data-duration="1000">0</div>
+                <div class="stat-label">Pending Tests</div>
+            </div>
+        </div>
+        <!-- Earnings Goal Progress -->
+        <div class="glass-card" style="max-width: 600px; margin: 0 auto 40px; padding: 32px; text-align: center;">
+            <h3 style="margin-bottom: 8px; color: var(--text-primary);">Weekly Earnings Goal</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px;">You're on track to hit your goal!</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar-header">
+                    <span class="progress-bar-label">Progress</span>
+                    <span class="progress-label-value">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" data-progress="72" data-duration="1500"></div>
+                </div>
+            </div>
+            <div class="hero-stat" style="margin-top: 16px; display: inline-block; padding: 8px 20px;">
+                <span style="font-weight: 700; color: var(--primary);">$342 earned</span>
+                <span style="color: var(--text-muted);"> of $500 goal</span>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <a href="available-sites.html" class="btn-start"><i class="fas fa-rocket"></i> Start Earning Now</a>
+        </div>
+        <div class="withdraw-section"></div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+            <div class="modal-title">Withdraw Earnings</div>
+            <div class="modal-subtitle">Choose your preferred payment method</div>
+            <div class="payment-options">
+                <div class="payment-option" onclick="selectPayment('mpesa')">
+                    <div class="payment-icon mpesa"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="payment-info"><div class="payment-name">M-Pesa</div><div class="payment-desc">Instant withdrawal to your mobile wallet</div></div>
+                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+                <div class="payment-option" onclick="selectPayment('paypal')">
+                    <div class="payment-icon paypal"><i class="fab fa-paypal"></i></div>
+                    <div class="payment-info"><div class="payment-name">PayPal</div><div class="payment-desc">Fast and secure international transfers</div></div>
+                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+                <div class="payment-option" onclick="selectPayment('stripe')">
+                    <div class="payment-icon stripe"><i class="fas fa-credit-card"></i></div>
+                    <div class="payment-info"><div class="payment-name">Stripe</div><div class="payment-desc">Direct bank transfer</div></div>
+                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+                <div class="payment-option" onclick="selectPayment('payoneer')">
+                    <div class="payment-icon payoneer"><i class="fas fa-wallet"></i></div>
+                    <div class="payment-info"><div class="payment-name">Payoneer</div><div class="payment-desc">Global payment service</div></div>
+                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+                <div class="payment-option" onclick="selectPayment('crypto')">
+                    <div class="payment-icon crypto"><i class="fab fa-bitcoin"></i></div>
+                    <div class="payment-info"><div class="payment-name">Cryptocurrency</div><div class="payment-desc">Bitcoin, Ethereum, and more</div></div>
+                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warning Modal -->
+    <div class="modal-overlay" id="warningModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeWarningModal()">&times;</button>
+            <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="modal-title" style="color:#ef4444;">Demo Mode</div>
+            <div class="modal-subtitle" id="warningText">This is a demo version.</div>
+            <button class="btn-warning" onclick="closeWarningModal()">Understood</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+<div class="footer-brand">
+                <a href="javascript:void(0)" class="logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="6" width="36" height="26" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
+                            <circle cx="20" cy="19" r="9" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.2)"/>
+                            <path d="M26 25L32 31" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="11" cy="12" r="3" fill="white" opacity="0.9"/>
+                            <rect x="6" y="32" width="8" height="2" rx="1" fill="white"/>
+                            <rect x="16" y="32" width="8" height="2" rx="1" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Testora</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html" class="footer-link">Privacy</a>
+                <a href="terms.html" class="footer-link">Terms</a>
+                <a href="cookies.html" class="footer-link">Cookies</a>
+            </div>
+            <div class="footer-copyright">© 2024 Testora Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+<script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
+

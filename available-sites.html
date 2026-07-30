@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Sites - Testora</title>
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Referrer-Policy" content="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-transition">
+<nav class="navbar glass-nav">
+        <div class="nav-container">
+            <a href="javascript:void(0)" class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="6" width="36" height="26" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
+                        <circle cx="20" cy="19" r="9" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.2)"/>
+                        <path d="M26 25L32 31" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="11" cy="12" r="3" fill="white" opacity="0.9"/>
+                        <rect x="6" y="32" width="8" height="2" rx="1" fill="white"/>
+                        <rect x="16" y="32" width="8" height="2" rx="1" fill="white"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Testora</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="available-sites.html" class="nav-link">Available Sites</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How it Works</a></li>
+                <li><a href="payment.html" class="nav-link">Payments</a></li>
+            </ul>
+            <div class="nav-actions" id="navActions"></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="how-it-works.html" class="mobile-link">How it Works</a>
+        <a href="payment.html" class="mobile-link">Payments</a>
+        <div class="mobile-cta" id="mobileCta"></div>
+    </div>
+
+    <div class="sites-wrapper">
+        <div class="sites-header">
+            <h1>Available Sites</h1>
+            <p>Choose a test to start earning</p>
+        </div>
+<div class="sites-grid stagger-children">
+    </div>
+
+    <!-- Instructions Modal -->
+    <div class="modal-overlay" id="instructionsModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 class="modal-title">Important Instructions</h2>
+            <ul class="modal-instructions">
+                <li>You will be taken to the Quartze page to complete a sign up process.</li>
+                <li>Use valid credentials only to sign up.</li>
+                <li>Answer the Questions on the offer page truthfully.</li>
+                <li>You should spend at least 5 minutes on the offer site you are testing.</li>
+                <li>Take a screenshot of the offer page and upload it when prompted in order to receive earnings!!</li>
+            </ul>
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-proceed" id="proceedBtn">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+<div class="footer-brand">
+                <a href="javascript:void(0)" class="logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="6" width="36" height="26" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
+                            <circle cx="20" cy="19" r="9" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.2)"/>
+                            <path d="M26 25L32 31" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="11" cy="12" r="3" fill="white" opacity="0.9"/>
+                            <rect x="6" y="32" width="8" height="2" rx="1" fill="white"/>
+                            <rect x="16" y="32" width="8" height="2" rx="1" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Testora</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html" class="footer-link">Privacy</a>
+                <a href="terms.html" class="footer-link">Terms</a>
+                <a href="cookies.html" class="footer-link">Cookies</a>
+            </div>
+            <div class="footer-copyright">© 2024 Testora Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+<script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/sites.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
+
