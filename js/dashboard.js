@@ -97,7 +97,25 @@ window.closeModal = function() {
 window.openModal = function(url) {
     const modal = document.getElementById('instructionsModal');
     const proceedBtn = document.getElementById('proceedBtn');
-    if (modal) modal.style.display = 'flex';
+
+    if (modal) {
+        modal.style.display = 'flex';
+
+        // Auto-scroll to the modal on mobile
+        if (window.innerWidth <= 768) {
+            setTimeout(() => {
+                const content = modal.querySelector('.modal-content');
+
+                if (content) {
+                    content.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }, 100);
+        }
+    }
+
     if (proceedBtn) {
         proceedBtn.onclick = () => {
             window.open(url, '_blank', 'noopener,noreferrer');
