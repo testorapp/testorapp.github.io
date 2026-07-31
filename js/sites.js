@@ -5,56 +5,56 @@
 const sites = [
     {
         id: 1,
-        name: "AlphaTest",
+        name: "VeloraHub",
         pay: "$14.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 2,
-        name: "BetaCheck",
+        name: "NexaraFlow",
         pay: "$12.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 3,
-        name: "GammaReview",
+        name: "OrbitalKit",
         pay: "$18.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 4,
-        name: "DeltaScore",
+        name: "CrestaPay",
         pay: "$15.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 5,
-        name: "EpsilonRate",
+        name: "DynaraApp",
         pay: "$16.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 6,
-        name: "ZetaVerify",
+        name: "PixelaSpace",
         pay: "$11.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 7,
-        name: "EtaJudge",
+        name: "ZyraBoard",
         pay: "$13.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 8,
-        name: "ThetaTester",
+        name: "MintaraPro",
         pay: "$14.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
