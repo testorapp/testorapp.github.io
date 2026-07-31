@@ -73,8 +73,8 @@ function animateCounter(el) {
         const eased = 1 - Math.pow(1 - progress, 3);
         const current = start + (target - start) * eased;
 
-        if (isCurrency) {
-            el.textContent = prefix + '$' + current.toFixed(2);
+if (isCurrency) {
+            el.textContent = prefix + current.toFixed(2);
         } else if (Number.isInteger(target)) {
             el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
         } else {
@@ -86,7 +86,7 @@ function animateCounter(el) {
         } else {
             // Final value
             if (isCurrency) {
-                el.textContent = prefix + '$' + target.toFixed(2);
+                el.textContent = prefix + target.toFixed(2);
             } else if (Number.isInteger(target)) {
                 el.textContent = prefix + target.toLocaleString() + suffix;
             } else {
