@@ -124,24 +124,6 @@ window.openModal = function(url) {
     }
 };
 
-// Payment modal handlers
-window.closePaymentModal = function() {
-    const modal = document.getElementById('paymentModal');
-    if (modal) modal.style.display = 'none';
-};
-
-window.selectPayment = function(method) {
-    console.log('Selected payment:', method);
-    alert('Payment method selected: ' + method + '\n(This is a demo version)');
-    closePaymentModal();
-};
-
-// Warning modal handlers
-window.closeWarningModal = function() {
-    const modal = document.getElementById('warningModal');
-    if (modal) modal.style.display = 'none';
-};
-
 // ==================== LOGO (smart home routing) ====================
 function handleLogoClick(e) {
     e.preventDefault();
@@ -162,3 +144,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDashboard();
     loadSites();
 });
+
