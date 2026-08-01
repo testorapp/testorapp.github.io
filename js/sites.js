@@ -5,42 +5,42 @@
 const sites = [
     {
         id: 1,
-        name: "Netflix",
+        name: "Quartze",
         pay: "$14.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 2,
-        name: "Spotify",
+        name: "Virexa",
         pay: "$12.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 3,
-        name: "Amazon",
+        name: "Quartze",
         pay: "$18.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 4,
-        name: "Disney+",
+        name: "Vitrus",
         pay: "$15.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 5,
-        name: "HBO Max",
+        name: "Quartze",
         pay: "$16.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
     },
     {
         id: 6,
-        name: "Apple Music",
+        name: "Nexa",
         pay: "$11.00",
         url: "https://sites.google.com/view/quartze",
         status: "Active"
