@@ -883,7 +883,6 @@ main { min-height: calc(100vh - 200px); padding-top: 80px; }
     backdrop-filter: blur(4px);
     z-index: 2000;
 
-    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -966,6 +965,11 @@ main { min-height: calc(100vh - 200px); padding-top: 80px; }
     left: 0;
     color: var(--success);
     font-weight: bold;
+}
+
+/* Raise instructions modal higher on the screen */
+#instructionsModal .modal-content {
+    transform: translateY(-80px);
 }
 
 .modal-buttons {
@@ -1327,20 +1331,6 @@ main { min-height: calc(100vh - 200px); padding-top: 80px; }
     box-shadow: 0 8px 25px rgba(102,126,234,0.4);
 }
 .btn-start:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(102,126,234,0.5); }
-.withdraw-section { text-align: center; margin-top: 40px; }
-.btn-withdraw {
-    background: var(--accent-gradient);
-    color: white; border: none;
-    padding: 16px 40px;
-    border-radius: var(--radius-full);
-    font-size: 1rem; font-weight: 600; cursor: pointer;
-    transition: all var(--transition-normal);
-    box-shadow: 0 4px 15px rgba(245,87,108,0.4);
-}
-.btn-withdraw:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245,87,108,0.5); }
-.btn-withdraw:disabled { background: #cbd5e1; cursor: not-allowed; box-shadow: none; }
-.withdraw-note { margin-top: 12px; color: var(--text-muted); font-size: 0.9rem; }
-
 /* ─── COOKIE BANNER ────────────────────────── */
 .cookie-banner {
     display: none;
