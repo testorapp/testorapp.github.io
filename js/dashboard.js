@@ -98,6 +98,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// ==================== PAYMENT WARNING MODAL ====================
+// Show a warning when a user clicks a payment option on the Payments page.
+window.showWarning = function() {
+    const modal = document.getElementById('warningModal');
+    if (modal) {
+        modal.classList.add('active');
+    }
+};
+
+window.closeWarning = function() {
+    const modal = document.getElementById('warningModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+};
+
 window.closeModal = function() {
     const modal = document.getElementById('instructionsModal');
     if (modal) modal.style.display = 'none';
