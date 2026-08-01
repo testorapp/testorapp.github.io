@@ -85,54 +85,6 @@
         <div style="text-align:center;">
             <a href="available-sites.html" class="btn-start"><i class="fas fa-rocket"></i> Start Earning Now</a>
         </div>
-        <div class="withdraw-section"></div>
-    </div>
-
-    <!-- Payment Modal -->
-    <div class="modal-overlay" id="paymentModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closePaymentModal()">&times;</button>
-            <div class="modal-title">Withdraw Earnings</div>
-            <div class="modal-subtitle">Choose your preferred payment method</div>
-            <div class="payment-options">
-                <div class="payment-option" onclick="selectPayment('mpesa')">
-                    <div class="payment-icon mpesa"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="payment-info"><div class="payment-name">M-Pesa</div><div class="payment-desc">Instant withdrawal to your mobile wallet</div></div>
-                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
-                </div>
-                <div class="payment-option" onclick="selectPayment('paypal')">
-                    <div class="payment-icon paypal"><i class="fab fa-paypal"></i></div>
-                    <div class="payment-info"><div class="payment-name">PayPal</div><div class="payment-desc">Fast and secure international transfers</div></div>
-                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
-                </div>
-                <div class="payment-option" onclick="selectPayment('stripe')">
-                    <div class="payment-icon stripe"><i class="fas fa-credit-card"></i></div>
-                    <div class="payment-info"><div class="payment-name">Stripe</div><div class="payment-desc">Direct bank transfer</div></div>
-                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
-                </div>
-                <div class="payment-option" onclick="selectPayment('payoneer')">
-                    <div class="payment-icon payoneer"><i class="fas fa-wallet"></i></div>
-                    <div class="payment-info"><div class="payment-name">Payoneer</div><div class="payment-desc">Global payment service</div></div>
-                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
-                </div>
-                <div class="payment-option" onclick="selectPayment('crypto')">
-                    <div class="payment-icon crypto"><i class="fab fa-bitcoin"></i></div>
-                    <div class="payment-info"><div class="payment-name">Cryptocurrency</div><div class="payment-desc">Bitcoin, Ethereum, and more</div></div>
-                    <div class="payment-arrow"><i class="fas fa-chevron-right"></i></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Warning Modal -->
-    <div class="modal-overlay" id="warningModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeWarningModal()">&times;</button>
-            <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
-            <div class="modal-title" style="color:#ef4444;">Demo Mode</div>
-            <div class="modal-subtitle" id="warningText">This is a demo version.</div>
-            <button class="btn-warning" onclick="closeWarningModal()">Understood</button>
-        </div>
     </div>
 
     <footer class="footer">
