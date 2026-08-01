@@ -89,6 +89,15 @@ function loadSites() {
 }
 
 // ==================== MODALS ====================
+// Ensure the instructions modal is hidden on page load.
+// It should only appear when the user clicks "Start Test" on a site card.
+document.addEventListener('DOMContentLoaded', () => {
+    const instructionsModal = document.getElementById('instructionsModal');
+    if (instructionsModal) {
+        instructionsModal.style.display = 'none';
+    }
+});
+
 window.closeModal = function() {
     const modal = document.getElementById('instructionsModal');
     if (modal) modal.style.display = 'none';
